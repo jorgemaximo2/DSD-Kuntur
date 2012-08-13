@@ -43,7 +43,7 @@
 		<tr align="center">
 			<th width="300"><small>ACTUALIZACION DE DATOS</small></th>
 			<th width="200"><small><font color="green">PENDIENTE</font></small></th>
-			<th width="250"><small><small><font color="blue"><a href="mk-actualizacion.jsp">Presione aquí para actualizar</a></font></small></small></th>
+			<th width="250"><small><small><font color="blue"><a href="mk-actualizacion.jsp">Presione aquí para actualizar </a></font></small></small></th>
 		</tr>
 
 </table>
@@ -67,7 +67,17 @@ int c=0;
 
 			<th width="250"><small>${hijos.apPaterno} ${hijos.apMaterno}, ${hijos.nombre}    </small></th>
 			<th width="220"><small><font color="green"><!-- NO CUMPLE PRERREQUISITOS --></font></small></th>
-			<th width="250"><nobr><small><font color="green"><a href="mk-dni.jsp?s=<%= c %>">Presione aquí para iniciar matrícula </a></font><font color="blue"></font></small></nobr></th>
+			<th width="250"><nobr><small>
+		<c:choose> 
+ 	    <c:when test="${hijos.codigomat != null}">
+ 	    	<font color="green" size=4 face="Verdana"><b>${hijos.codigomat}</b></font>
+      	</c:when> 
+ 		<c:otherwise>
+ 			<font color="green"><a href="mk-dni.jsp?s=<%= c %>">Presione aquí para iniciar matrícula </a></font>
+ 	  	</c:otherwise> 
+    	</c:choose> 
+			<font color="blue"></font></small></nobr>
+			</th>
 <% 
 c++;
 %>

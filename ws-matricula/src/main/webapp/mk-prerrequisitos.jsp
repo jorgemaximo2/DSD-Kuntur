@@ -39,6 +39,7 @@ int c=0;
 <br></br>
 		<table align="center"><tr><td><font face="verdana"><b>${hijos.apPaterno} ${hijos.apMaterno}, ${hijos.nombre}  </b></front></td></tr></table>
 <br></br>
+
 <table border="1" WIDTH=30% align="center" > 
 		<tr align="center">
 			<td colspan="3"><font face="verdana"><small><b><br>Prerrequisitos</br><font face="verdana", color="blue">Ver detalles</b></small></font></th>
@@ -52,7 +53,7 @@ int c=0;
 		</tr>
 		<tr>
 			<th align="left"><small><font face="verdana">Deudas de pensiones</font></small></th>
-			<th align="center"><small><font face="verdana", color="green">CONFORME</font></small></th>
+			<th align="center"><small><font face="verdana", color="green"><a href="contabilidad/getall">CONFORME</a></font></small></th>			
 		</tr>
 		<tr>
 			<th align="left"><small><font face="verdana">Deudas varias</font></small></th>

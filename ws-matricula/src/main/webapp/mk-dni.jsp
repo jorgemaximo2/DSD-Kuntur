@@ -24,7 +24,7 @@
 	function grabarDNI()
 	{
 
-		document.formularioPersona.action.value = 'mk-registra-sit-esp.jsp';
+		document.formularioPersona.accion.value = 'grabardni';
 		document.formularioPersona.submit();
 	}
 	
@@ -42,9 +42,9 @@
 int s=0;    
 if (request.getParameter("s") != null) {
        s = Integer.parseInt(request.getParameter("s"));
-      // out.println("Please enter your name."+s);    
 }
 pageContext.setAttribute("s", s);
+
 
 String inicio=null; 
 if (request.getParameter("accion") != null) {
@@ -53,6 +53,11 @@ if (request.getParameter("accion") != null) {
 }
 pageContext.setAttribute("inicio", inicio);
 %>
+
+<input type="hidden" name="s" value="<%= s%>"/>
+<c:set var="alumnoSeleccionado" value="${childrenParents[s].codigoAlumno}" scope="session" />
+
+
 
 <div align="center">
 <b><h4>${childrenParents[s].apPaterno} ${childrenParents[s].apMaterno},  ${childrenParents[s].nombre}</h4></b>
@@ -100,9 +105,17 @@ pageContext.setAttribute("inicio", inicio);
 <c:if test="${model.persona.dni != null}">
 
 	<table border="1" WIDTH=35% height=5% align="center" > 
-			<tr><td>
+			<tr>
+			<td>
+			<!-- 
 			<A href="mk-registra-sit-esp.jsp"><img src="images/continuar.png" width="98" height="34" align="right"></A>
-			<input type="submit" value="Grabar DNI" name="btnSubmit" id="btnSubmit"></td>
+			<input type="submit" value="Grabar DNI" name="btnSubmit" id="btnSubmit">
+			 -->
+			<input type="submit" name="btnGrabarDNI" value="Grabar DNI" onclick="javascript:grabarDNI();"  />
+			
+			</td>
+			
+			
 			<td><font face="verdana"><small>Si el número del documento ingresado es correcto presione "Grabar DNI" para continuar</small></font></td>
 			</tr>
 	</table>

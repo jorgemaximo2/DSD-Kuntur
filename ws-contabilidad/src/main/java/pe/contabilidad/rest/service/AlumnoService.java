@@ -80,7 +80,7 @@ public class AlumnoService {
 	/**
 	 * Retrieves a single person
 	 */
-	public Alumno get( String dni) {
+	/*public Alumno get( String dni) {
 		logger.debug("Retrieving alumno with dni: " + dni);
 		
 		for (Alumno alumno:alumnos) {
@@ -92,6 +92,22 @@ public class AlumnoService {
 		
 		logger.debug("No records found");
 		return null;
+	}*/
+	
+	public ArrayList<Alumno> get( String dni) {
+		logger.debug("Retrieving alumno with dni: " + dni);
+		
+		ArrayList<Alumno> list = new ArrayList<Alumno>();
+		
+		for (Alumno alumno:alumnos) {
+			if (alumno.getDni().equals(dni)) {
+				logger.debug("Found record");
+				list.add(alumno);
+			}
+		}
+		
+		logger.debug("No records found");
+		return list;
 	}
 	
 	

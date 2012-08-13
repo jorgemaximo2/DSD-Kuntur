@@ -35,14 +35,18 @@ public class AlumnoController {
 	private AlumnoService alumnoService;
 	
 	@RequestMapping(value = "/alumno/{dni}", method = RequestMethod.GET, headers = "Accept=application/xml, application/json")
-	public @ResponseBody Alumno getAlumno(@PathVariable("dni") String dni) {
+	public @ResponseBody AlumnoList getAlumno(@PathVariable("dni") String dni) {
 		logger.debug("Provider has received request to get alumno with dni: " + dni);
+		
+		AlumnoList result = new AlumnoList();
+		
+		result.setData(alumnoService.get(dni));
 
-		// Call service here
-		return alumnoService.get(dni);
+		return result;		
+		
 	}
 
-	@RequestMapping(value = "/alumno/{dni}", method = RequestMethod.GET, headers = "Accept=application/html, application/xhtml+xml")
+	/*@RequestMapping(value = "/alumno/{dni}", method = RequestMethod.GET, headers = "Accept=application/html, application/xhtml+xml")
 	public String getPersonHTML(@PathVariable("dni") String dni, Model model) {
 		logger.debug("Provider has received request to get alumno with dni: " + dni);
 
@@ -51,7 +55,7 @@ public class AlumnoController {
 
 		// This will resolve to /WEB-INF/jsp/getpage.jsp
 		return "getpage";
-	}
+	}*/
 
 	@RequestMapping(value = "/alumnos", method = RequestMethod.GET, headers = "Accept=application/xml, application/json")
 	public @ResponseBody AlumnoList getAlumno() {

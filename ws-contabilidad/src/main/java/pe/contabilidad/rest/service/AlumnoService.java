@@ -13,7 +13,6 @@ public class AlumnoService {
 	
 	protected static Logger logger = Logger.getLogger("service");
 	
-	// In-memory list
 	private List<Alumno> alumnos = new ArrayList<Alumno>();
 
 	public AlumnoService(){
@@ -80,20 +79,7 @@ public class AlumnoService {
 	/**
 	 * Retrieves a single person
 	 */
-	/*public Alumno get( String dni) {
-		logger.debug("Retrieving alumno with dni: " + dni);
 		
-		for (Alumno alumno:alumnos) {
-			if (alumno.getDni().equals(dni)) {
-				logger.debug("Found record");
-				return alumno;
-			}
-		}
-		
-		logger.debug("No records found");
-		return null;
-	}*/
-	
 	public ArrayList<Alumno> get( String dni) {
 		logger.debug("Retrieving alumno with dni: " + dni);
 		
@@ -108,8 +94,6 @@ public class AlumnoService {
 		
 		logger.debug("No records found");
 		return list;
-	}
-	
-	
+	}	
 	
 }

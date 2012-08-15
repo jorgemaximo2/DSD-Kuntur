@@ -44,24 +44,12 @@ public class AlumnoController {
 
 		return result;		
 		
-	}
-
-	/*@RequestMapping(value = "/alumno/{dni}", method = RequestMethod.GET, headers = "Accept=application/html, application/xhtml+xml")
-	public String getPersonHTML(@PathVariable("dni") String dni, Model model) {
-		logger.debug("Provider has received request to get alumno with dni: " + dni);
-
-		// Call service to here
-		model.addAttribute("alumno", alumnoService.get(dni));
-
-		// This will resolve to /WEB-INF/jsp/getpage.jsp
-		return "getpage";
-	}*/
+	}	
 
 	@RequestMapping(value = "/alumnos", method = RequestMethod.GET, headers = "Accept=application/xml, application/json")
 	public @ResponseBody AlumnoList getAlumno() {
 		logger.debug("Provider has received request to get all alumnos");
 
-		// Call service here
 		AlumnoList result = new AlumnoList();
 		
 		result.setData(alumnoService.getAll());
